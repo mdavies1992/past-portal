@@ -7,5 +7,6 @@
       <%= f.label :user_question, "Your question" %>
     </div>
     <%= f.submit "Ask", id: "new-question-button", class: "btn btn-primary" %>
+    <%# TODO: Clear button --> Will need to do a delete function on Question.all(for user_id) %>
   </div>
 <% end %>
