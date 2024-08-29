@@ -26,4 +26,12 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:user_question)
     end
+
+    def purge
+      if Question.destroy_all.any?
+        redirect_to questions_path, notice: "All questions were successfully deleted."
+      else
+        redirect_to questions_path, alert: "Failed to delete questions."
+      end
+    end
   end

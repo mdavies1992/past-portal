@@ -1,7 +1,14 @@
 <div class="container chatbot">
-  <h1>Chat with us</h1>
+  <h1>Chat with HISTORICAL NAME HERE</h1>
   <div id="questions">
     <%= render @questions %>
   </div>
   <%= render "form", question: @question %>
+  <p>
+    <i class="fa-solid fa-trash"></i>
+    <%= link_to "Clear all Questions", purge_path,
+              data: {turbo_method: :delete,
+              turbo_confirm: "This action will delete all your chat history, and cannot be reversed. Are you sure?"}
+  %>
+  </p>
 </div>
