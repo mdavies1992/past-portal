@@ -16,10 +16,10 @@ class QuestionsController < ApplicationController
         end
         format.html { redirect_to questions_path }
       end
-      else
+    else
        render :index
-      end
     end
+  end
 
     private
 
@@ -28,10 +28,11 @@ class QuestionsController < ApplicationController
     end
 
     def purge
-      if Question.destroy_all.any?
+      @questions = current_user.questions
+      if @questions.destroy_all.any?
         redirect_to questions_path, notice: "All questions were successfully deleted."
       else
         redirect_to questions_path, alert: "Failed to delete questions."
       end
     end
-  end
+end

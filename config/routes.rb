@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :questions, only: [:index, :create]
-  delete "/questions", to: "questions#purge", as: :purge
+    delete :questions, to: "questions#purge", as: :purge
 end
